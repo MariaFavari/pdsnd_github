@@ -106,21 +106,11 @@ def time_stats(df):
         print ('Most Popular month: {}'.format(p_month))
 
     # display the most common day of week
-    popular_day = df['day_of_week'].mode()[0]
-    if popular_day==0:
-        print('Most Popular day of week: Monday')
-    elif popular_day==1:
-        print('Most Popular day of week: Tuesday')
-    elif popular_day==2:
-        print('Most Popular day of week: Wednesday')
-    elif popular_day==3:
-        print('Most Popular day of week: Thursday')
-    elif popular_day==4:
-        print('Most Popular day of week: Friday')
-    elif popular_day==5:
-        print('Most Popular day of week: Saturday')
-    else:
-        print('Most Popular day of week: Sunday')
+    df['day_of_week'] = df['Start Time'].dt.weekday
+    days=['M', 'Tu','W', 'Th', 'F', 'Sa', 'Su']
+    for p_day in days:
+        print('Most Popular day of week: {}'.format(p_day))
+        break
 
     # display the most common start hour
     popular_hour = df['hour'].mode()[0]
