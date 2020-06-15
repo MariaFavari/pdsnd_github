@@ -98,19 +98,12 @@ def time_stats(df):
     start_time = time.time()
 
     # display the most common month
-    popular_month= df['month'].mode()[0]
-    if popular_month==1:
-        print('Most Popular month: January')
-    elif popular_month==2:
-        print('Most Popular month: February')
-    elif popular_month==3:
-        print('Most Popular month: March')
-    elif popular_month==4:
-        print('Most Popular month: April')
-    elif popular_month==5:
-        print('Most Popular month: May')
-    else:
-        print('Most Popular month: June')
+    df['month'] = df['Start Time'].dt.month
+    # use the index of the months list to get the corresponding int
+    months = ['january', 'february', 'march', 'april', 'may', 'june']
+    #month = months.index(month) + 1
+    for p_month in months:
+        print ('Most Popular month: {}'.format(p_month))
 
     # display the most common day of week
     popular_day = df['day_of_week'].mode()[0]
