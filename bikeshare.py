@@ -1,3 +1,14 @@
+"""
+This program provides statistical information for the bikeshare data dupplied by Udacity.
+
+Returns:
+    Statistics on the most frequent times of travel.
+    Statistics on the most popular stations and trip.
+    Statistics on the total and average trip duration.
+    Statistics on bikeshare users.
+    Raw data can be reviewed at user request.
+
+"""
 import time
 import pandas as pd
 import numpy as np
